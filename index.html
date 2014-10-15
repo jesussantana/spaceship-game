@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SpaceShip</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="javascript/Animation.js"></script>
+	<script src="javascript/Ball.js"></script>
+	<script>
+	window.onload = function(){
+		var canvas = document.getElementById("game");
+		var context = canvas.getContext("2d");
+
+		var b1 = new Ball(context);
+		b1.x = 30;
+		b1.y = 30;
+		b1.speedX = 1;
+		b1.speedY = 10;
+		b1.radio = 30;
+		b1.color = "red"
+
+		var animation = new Animation(context);
+		animation.newSprite(b1);
+		animation.play();
+		
+	};
+	</script>
+</head>
+<body>
+	<canvas id="game" width="500" height="500">Seu navegador Não da suporte a canvas</canvas>
+</body>
+</html>
