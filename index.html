@@ -5,24 +5,46 @@
 	<title>SpaceShip</title>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="javascript/Animation.js"></script>
-	<script src="javascript/Ball.js"></script>
+	<script src="javascript/Keyboard.js"></script>	
+	<script src="javascript/Spritesheet.js"></script>
+	<script src="javascript/Parallax.js"></script>
+	<script src="javascript/SpaceShip.js"></script>
 	<script>
 	window.onload = function(){
 		var canvas = document.getElementById("game");
+		canvas.style.backgroundColor = 'black';
 		var context = canvas.getContext("2d");
-
-		var b1 = new Ball(context);
-		b1.x = 30;
-		b1.y = 30;
-		b1.speedX = 1;
-		b1.speedY = 10;
-		b1.radio = 30;
-		b1.color = "red"
-
 		var animation = new Animation(context);
-		animation.newSprite(b1);
-		animation.play();
+
+		var shipImage = new Image();
+		shipImage.src = 'img/sprite_spaceship.png';
+
+		var imgBgSpace = new Image();
+		imgBgSpace.src = 'img/bg-space.png';
+
+		var imgBgCloud = new Image();
+		imgBgCloud.src = 'img/bg-clouds.png';
+
+		var imgBgStars = new Image();
+		imgBgStars.src = 'img/bg-stars.png';
+
+		var keyboard = new Keyboard(document);
 		
+		var bgSpace = new Parallax(context, imgBgSpace);
+		bgSpace.speed = 1;
+
+		var bgStars = new Parallax(context, imgBgStars);
+		bgStars.speed = 2;
+
+		var bgCloud = new Parallax(context, imgBgCloud);
+		bgCloud.speed = 3;
+		
+		var ship = new SpaceShip(context, keyboard, shipImage);
+		animation.newSprite(bgSpace);
+		animation.newSprite(bgStars);
+		animation.newSprite(bgCloud);
+		animation.newSprite(ship);
+		animation.play();
 	};
 	</script>
 </head>
