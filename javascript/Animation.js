@@ -29,7 +29,7 @@ Animation.prototype = {
 		this.cleanCanvas();
 		
 		for (var i in this.sprites) {
-			this.sprites[i].refresh();
+			this.sprites[i].update();
 		}
 
 		for (var i in this.sprites) {

@@ -1,4 +1,5 @@
 function Ball(context){
+	
 	this.context = context;
 	this.x = 0;
 	this.y = 0;
@@ -10,13 +11,17 @@ function Ball(context){
 
 Ball.prototype = {
 	
-	refresh : function(){
+	update : function(){
 		var ctx = this.context;
-		if (this.x < this.radio || (this.x > ctx.canvas.width - this.radio)) {
+
+		var newX = this.x += this.speedX;
+		var newY = this.y += this.speedY;
+
+		if (newX <= this.radio || (newX > ctx.canvas.width - this.radio)) {
 			this.speedX *= -1;
 		}
 
-		if (this.y < this.radio || (this.y > ctx.canvas.height - this.radio)) {
+		if (newY <= this.radio || (newY > ctx.canvas.height - this.radio)) {
 			this.speedY *= -1;
 		}
 
