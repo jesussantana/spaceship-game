@@ -8,6 +8,7 @@
 	<script src="javascript/Keyboard.js"></script>	
 	<script src="javascript/Spritesheet.js"></script>
 	<script src="javascript/Parallax.js"></script>
+	<script src="javascript/Bullet.js"></script>
 	<script src="javascript/SpaceShip.js"></script>
 	<script>
 	window.onload = function(){
@@ -17,6 +18,9 @@
 		canvas.style.backgroundColor = 'black';
 		var context = canvas.getContext("2d");
 		var animation = new Animation(context);
+
+
+
 
 		var images = {
 			ship: 'img/sprite_spaceship.png',
@@ -44,11 +48,19 @@
 		var bgCloud = new Parallax(context, images.BgCloud);
 		bgCloud.speed = 3;
 		
-		var ship = new SpaceShip(context, keyboard, images.ship);
+		var ship = new SpaceShip(context, keyboard, images.ship, animation);
 		animation.newSprite(bgSpace);
 		animation.newSprite(bgStars);
 		animation.newSprite(bgCloud);
 		animation.newSprite(ship);
+
+
+
+		keyboard.onFire(SPACE, function() {
+           ship.shoot();
+        });
+
+
 		animation.play();
 	};
 	</script>
