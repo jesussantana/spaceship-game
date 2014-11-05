@@ -1,6 +1,7 @@
-function SpaceShip (context, keyboard, spaceShipImage) {
+function SpaceShip (context, keyboard, spaceShipImage, animation) {
 	this.context = context;
 	this.keyboard = keyboard;
+	this.animation = animation;
 	this.speedX = 3;
 	this.speedY = 3;
 	this.width = 40;
@@ -42,6 +43,11 @@ SpaceShip.prototype = {
 		this.spritesheet.draw(this.x, this.y);
 		this.spritesheet.nextFrame();
 
+	},
+
+	shoot : function () {
+		var bullet = new Bullet(this.context, this);
+      	this.animation.newSprite(bullet);
 	}
 
 }
