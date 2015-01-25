@@ -1,7 +1,7 @@
 Spaceship Browser Game
 ===
 A web game developed with HTML5, Canvas and Javascrip.
->Obs: Not Finished yet.
+[online demo](http://www.viniciusdacal.com/spaceship-game/)
 
 ##References
 - Books
